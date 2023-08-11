@@ -42,7 +42,7 @@ function initMap() {
             alert("No se encuentra dentro del área del colegio");
         else {
             sendData(
-                "/asistencias/marcar",
+                "asistencias/marcar",
                 {
                 "query": true
                 }
@@ -74,7 +74,7 @@ function showUserPosition(position) {
     };
 
     var customIcon = {
-        url: '../assets/asistencia-customsf.png',
+        url: './assets/asistencia-customsf.png',
         scaledSize: new google.maps.Size(80, 80), // Tamaño del ícono personalizado
         origin: new google.maps.Point(0, 0), // Punto de origen del ícono
         // anchor: new google.maps.Point(20, 40) // Punto de anclaje del ícono
