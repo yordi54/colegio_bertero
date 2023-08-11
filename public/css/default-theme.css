@@ -73,7 +73,7 @@ body {
 
 #header > div > #toggleButton {
     content: '';
-    background-image: url("/assets/menu.png");
+    background-image: url("../assets/menu.png");
     background-size:cover;
     width:40px;
     height:40px;
@@ -82,7 +82,7 @@ body {
 
 #header > div > #btnLogout {
     content: '';
-    background-image: url("/assets/logout.png");
+    background-image: url("../assets/logout.png");
     background-size:cover;
     width:40px;
     height:40px;

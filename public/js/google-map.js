@@ -42,7 +42,7 @@ function initMap() {
             alert("No se encuentra dentro del área del colegio");
         else {
             sendData(
-                "/asistencias/marcar",
+                "../asistencias/marcar",
                 {
                 "query": true
                 }

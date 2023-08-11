@@ -43,11 +43,11 @@
 }
 
 #header.child-theme > div > #toggleButton {
-    background-image: url("/assets/menu-50.png");
+    background-image: url("../assets/menu-50.png");
 }
 
 #header.child-theme > div > #btnLogout {
-    background-image: url("/assets/logout-48.png");
+    background-image: url("../assets/logout-48.png");
 }
 
 #header.child-theme > div > button {

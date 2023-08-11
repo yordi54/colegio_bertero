@@ -59,11 +59,11 @@
 }
 
 #header.old-theme > div > #toggleButton {
-    background-image: url("/assets/menu-48.png");
+    background-image: url("../assets/menu-48.png");
 }
 
 #header.old-theme > div > #btnLogout {
-    background-image: url("/assets/logout-64.png");
+    background-image: url("../assets/logout-64.png");
 }
 
 #header.old-theme > div > button {
