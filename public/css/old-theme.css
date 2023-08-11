@@ -1,0 +1,113 @@
+/* Themes setup */
+
+@import url("variables.css");
+
+/*-----------------sidenav themes setup */
+#sidenav.old-theme {
+    background-color: var(--light-green3);
+    color: black;
+    border: none;
+    font-family: var(--font-noto-sans);
+    font-weight: bold;
+    letter-spacing: 1.2px;
+    font-size: 18px;
+}
+
+#sidenav.old-theme > div > button {
+    background-color: var(--light-blue);
+    color: black;
+    border: none;
+    font-family: var(--font-noto-sans);
+    font-weight: bold;
+    letter-spacing: 1.2px;
+    font-size: 20px;
+}
+
+#img-logo.old-theme {
+    background-image: url("../assets/logocoleblack.png");
+}
+
+.old-theme > button {
+    background-color: var(--light-blue);
+    color: black;
+    font-family: var(--font-noto-sans);
+    font-weight: bold;
+    letter-spacing: 1.2px;
+    font-size: 18px;
+}
+
+.old-theme > a {
+    background-color: var(--light-blue);
+    color: black;
+    font-family: var(--font-noto-sans);
+    font-weight: bold;
+    letter-spacing: 1.2px;
+    font-size: 18px;
+}
+/*-----------------end sidenav themes setup*/
+
+
+
+/*-----------------header themes config */
+#header.old-theme {
+    background-color: var(--light-green2);
+    color: black;
+    font-family: var(--font-noto-sans);
+    font-weight: bold;
+    letter-spacing: 1.2px;
+    font-size: 20px;
+}
+
+#header.old-theme > div > #toggleButton {
+    background-image: url("/assets/menu-48.png");
+}
+
+#header.old-theme > div > #btnLogout {
+    background-image: url("/assets/logout-64.png");
+}
+
+#header.old-theme > div > button {
+    background-color: var(--light-blue);
+    color: var(--header-color-dark);
+}
+
+#header.old-theme > div > button:hover {
+    background-color: var(--light-green3);
+}
+
+#header.old-theme > div > button:active {
+    transform: translateY(3px);
+    box-shadow: 0 0 10px var(--header-color-dark);
+}
+/*-----------------end header themes setup*/
+
+
+
+/*-----------------main themes config */
+#main.old-theme {
+    background-color: var(--light-green);
+    color: black;
+}
+
+#main.old-theme  > * {
+    background-color: var(--light-green);
+    color: black;
+    font-family: var(--font-noto-sans);
+    font-weight: bold;
+    letter-spacing: 1.2px;
+    font-size: 24px;
+}
+/*-----------------end main themes setup*/
+
+
+
+/*-----------------footer themes config */
+#footer.old-theme {
+    background-color: var(--light-green2);
+    color: black;
+    font-family: var(--font-noto-sans);
+    font-weight: bold;
+    letter-spacing: 1.2px;
+    font-size: 16px;
+}
+/*-----------------footer themes config */

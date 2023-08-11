@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Borel&family=Montserrat&family=Noto+Sans:wght@300&display=swap');
+
+:root {
+    /*---------------Colores----------------*/
+    --primary-color: #1662a0;
+    --secondary-color: #524E4D;
+    --light-color: #D9D3D2;
+    --light-blue: #e1f5fe;
+    --light-green: #E1F5E6;
+    --light-green2: #B7EAC4;
+    --light-green3: #A0E3B1;
+    --blue-light: #42A5F5;
+    --blue-light2: #2D87CE;
+    --blue-light3: #5CA8E3;
+    --orange-color: #D57725;
+    --green-lime: #CDDC39;
+    --green-lime-light: #dae280;
+    --green-lime-light2: #9ca53b;
+
+    --sidenav-color-white: #fff;
+    --sidenav-color-dark: #393635;
+
+    --header-color-white: #F2ECEA;
+    --header-color-dark: #504e4d;
+
+    --main-color-white: #f8f5f4;
+    --main-color-dark: #646261;
+
+    --footer-color-white: #fff;
+    --footer-color-dark: #504e4d;
+
+    /*----------------Fuentes----------------*/
+    --font-arial: Arial, Helvetica, sans-serif;
+    --font-noto-sans: 'Noto Sans', sans-serif;
+    --font-lucida: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    --font-open-sans: 'Open Sans', sans-serif;
+
+}

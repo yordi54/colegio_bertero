@@ -1,0 +1,77 @@
+/* Themes setup */
+
+@import url("variables.css");
+
+/*-----------------sidenav themes setup */
+#sidenav.dark {
+    background-color: var(--sidenav-color-dark);
+    color: var(--sidenav-color-white);
+    border: none;
+}
+
+#sidenav.dark > div > button {
+    background-color: var(--secondary-color);
+    color: var(--light-blue);
+    border: none;
+}
+
+#img-logo.dark {
+    background-image: url("../assets/logocolewhite.png");
+}
+
+.dark > button {
+    background-color: var(--secondary-color);
+    color: var(--sidenav-color-white);
+}
+
+.dark > a {
+    background-color: var(--secondary-color);
+    color: var(--sidenav-color-white);
+}
+/*-----------------end sidenav themes setup*/
+
+
+
+/*-----------------header themes config */
+#header.dark {
+    background-color: var(--header-color-dark);
+    color: var(--header-color-white);
+}
+
+#header.dark > div > button {
+    background-color: var(--header-color-white);
+    color: var(--header-color-dark);
+}
+
+#header.dark > div > button:hover {
+    background-color: var(--light-color);
+}
+
+/* #header.dark > div > button:active {
+    transform: translateY(3px);
+    box-shadow: 0 0 10px var(--header-color-dark);
+} */
+/*-----------------end header themes setup*/
+
+
+
+/*-----------------main themes config */
+#main.dark {
+    background-color: var(--main-color-dark);
+    color: var(--main-color-white);
+}
+
+#main.dark  > * {
+    background-color: var(--main-color-dark);
+    color: var(--main-color-white);
+}
+/*-----------------end main themes setup*/
+
+
+
+/*-----------------footer themes config */
+#footer.dark {
+    background-color: var(--footer-color-dark);
+    color: var(--footer-color-white);
+}
+/*-----------------footer themes config */

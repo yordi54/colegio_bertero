@@ -1,0 +1,26 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url(../assets/school-fondo.jpg);
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-position: center center;
+}
+
+form {
+    width: 500px;
+}
+
+.container {
+    height: 300px;
+    background-color: #31c44a;
+    opacity: 0.9;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

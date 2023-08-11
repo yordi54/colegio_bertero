@@ -1,0 +1,94 @@
+/* Themes setup */
+
+@import url("variables.css");
+
+/*-----------------sidenav themes setup */
+#sidenav.child-theme {
+    background-color: var(--blue-light);
+    color: black;
+    border: none;
+    font-family: var(--font-lucida);
+}
+
+#sidenav.child-theme > div > button {
+    background-color: var(--light-blue);
+    color: black;
+    border: none;
+    font-family: var(--font-lucida);
+    font-weight: bold;
+}
+
+#img-logo.child-theme {
+    background-image: url("../assets/logocoleblack.png");
+}
+
+.child-theme > button {
+    background-color: var(--light-blue);
+    color: black;   
+}
+
+.child-theme > a {
+    background-color: var(--light-blue);
+    color: black;
+}
+/*-----------------end sidenav themes setup*/
+
+
+
+/*-----------------header themes config */
+#header.child-theme {
+    background-color: var(--blue-light2);
+    color: black;
+    font-family: var(--font-lucida);
+}
+
+#header.child-theme > div > #toggleButton {
+    background-image: url("/assets/menu-50.png");
+}
+
+#header.child-theme > div > #btnLogout {
+    background-image: url("/assets/logout-48.png");
+}
+
+#header.child-theme > div > button {
+    background-color: var(--light-blue);
+    color: var(--header-color-dark);
+    transition: box-shadow 0.1s ease-in-out;
+    transition: transform 0.1s ease-in-out;
+}
+
+#header.child-theme > div > button:hover {
+    background-color: var(--blue-light3);
+}
+
+#header.child-theme > div > button:active {
+    transform: scale(1.2);
+    box-shadow: 0 0 10px 10px var(--orange-color);
+}
+
+/*-----------------end header themes setup*/
+
+
+
+/*-----------------main themes config */
+#main.child-theme {
+    background-color: var(--light-blue);
+    color: black;
+}
+
+#main.child-theme  > * {
+    background-color: var(--light-blue);
+    color: black;
+    font-family: var(--font-lucida);
+}
+/*-----------------end main themes setup*/
+
+
+
+/*-----------------footer themes config */
+#footer.child-theme {
+    background-color: var(--blue-light3);
+    color: black;
+    font-family: var(--font-lucida);
+}
+/*-----------------footer themes config */

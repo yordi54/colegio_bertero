@@ -1,0 +1,148 @@
+/* Temas por defecto */
+
+@import url("variables.css");
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/*-----------------sidenav initial config */
+#sidenav {
+    width: 250px;
+    height: 100vh;
+    background-color: var(--green-lime-light);
+    color: var(--sidenav-color-dark);
+    /* border: 10px solid;
+    border-image-slice: 1;
+    border-width: 5px;
+    border-image-source: linear-gradient(to left, var(--light-blue), #fff); */
+    box-sizing: border-box;
+    font-family: var(--font-arial);
+    position: fixed;
+    overflow-y: auto;
+    transition: margin-left 0.5s ease-in-out;
+}
+
+#sidenav > div > button {
+    background-color: var(--green-lime);
+    border: none;
+    color: black;
+    font-family: var(--font-arial);
+}
+
+#img-logo {
+    background-image: url("../assets/logocoleblack.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+}
+
+.list-group > button {
+    background-color: var(--sidenav-color-white);
+    color: var(--sidenav-color-dark);
+}
+
+.list-group > a {
+    background-color: var(--sidenav-color-white);
+    color: var(--sidenav-color-dark);
+}
+/*-----------------end sidenav initial setup*/
+
+#container-right {
+    width: calc(100% - 250px);    
+    position: absolute;
+    right: 0;
+    transition: width 0.5s ease-in-out;
+}
+
+/*-----------------header initial config */
+#header {
+    width: calc(100% - 250px);
+    height: 60px;
+    background-color: var(--green-lime);
+    color: black;
+    position: fixed;
+    font-family: var(--font-arial);
+    font-weight: bold;
+    transition: width 0.5s ease-in-out;
+    z-index: 1;
+}
+
+#header > div > #toggleButton {
+    content: '';
+    background-image: url("/assets/menu.png");
+    background-size:cover;
+    width:40px;
+    height:40px;
+    color: blue;
+}
+
+#header > div > #btnLogout {
+    content: '';
+    background-image: url("/assets/logout.png");
+    background-size:cover;
+    width:40px;
+    height:40px;
+}
+
+#header > div > button {
+    background-color: var(--green-lime-light);
+    color: var(--header-color-white);    
+    transition: transform 0.1s ease-in-out;
+}
+
+#header > div > button:hover {
+    background-color: var(--green-lime-light2);
+}
+
+#header > div > button:active {
+    transform: translateY(3px);
+    box-shadow: 0 0 10px var(--header-color-dark);
+}
+/*-----------------end header initial setup*/
+
+
+
+/*-----------------main initial config */
+#main {
+    min-height: calc(100vh - 60px - 40px);
+    background-color: var(--main-color-white);
+    color: black;
+    padding: 10px;
+    margin-top: 60px;
+    font-family: var(--font-arial);
+}
+/*-----------------end main initial setup*/
+
+
+
+/*-----------------footer initial config */
+#footer {
+    height: 40px;
+    background-color: var(--green-lime);
+    color: black;
+    font-family: var(--font-arial);
+    font-size: small;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/*-----------------footer initial config */
+
+
+
+/* Ocultar y mostrar sidenav */
+#sidenav.open {
+    margin-left: -250px;
+}
+
+#sidenav.open + #container-right {
+    width: 100%;
+}
+
+#sidenav.open + #container-right > #header {
+    width: 100%;
+}
