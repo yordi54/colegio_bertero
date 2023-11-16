@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\DB;
 use PhpParser\Node\Expr\Cast\Object_;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Storage;
 
 class PersonaController extends Controller
 {
@@ -99,17 +100,22 @@ class PersonaController extends Controller
      */
     public function store(StorePersonaRequest $request)
     {
+        $request->validate([
+            'photo' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
         $request["password"] = bcrypt($request->password);
-
         //Creación de la persona
-        $persona = Persona::create($request->all());
-        
+        $persona = Persona::create($request->except('photo'));
         $role = Role::find($request->role);
+        $uploadedFile = $request->file('photo');
+        $path = $uploadedFile->store('imagenes', 's3');
+        $url = urldecode(config('filesystems.disks.s3.url') . $path);
 
         //Creación de la tabla docente, si así lo es
         if(trim(strtolower($role->nombre)) === "docente"){
             $docente = new Docente();
             $docente->personas_id = $persona->id;
+            $docente->photo = $url;
             $docente->save();
         }
 

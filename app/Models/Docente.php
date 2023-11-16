@@ -13,6 +13,11 @@ class Docente extends Model
     public $incrementing = false;
     public $timestamps = false;
 
+    protected $fillable = [
+        'personas_id',
+        'photo'
+    ];
+
     public function persona() {
         return $this->belongsTo(Persona::class, "personas_id");
     }
