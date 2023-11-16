@@ -11,6 +11,8 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MateriaController;
 use App\Http\Controllers\PersonaController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\GeocercaController;
+use App\Models\Geocerca;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -70,5 +72,7 @@ Route::group(["middleware" => 'auth'], function() {
 
     Route::resource("asistencias", AsistenciaController::class)->names("asistencias");
     Route::post("asistencias/marcar", [AsistenciaController::class, "marcarAsistencia"]);
+
+    Route::resource("geocercas", GeocercaController::class)->names("geocercas");
 
 });

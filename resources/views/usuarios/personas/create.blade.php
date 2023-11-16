@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-md-10 offset-md-1">
                 <h2>Nueva persona</h2>
-                <form action="{{route('personas.store')}}" method="POST" class="row">
+                <form action="{{route('personas.store')}}" method="POST" enctype="multipart/form-data" class="row">
                     @csrf
 
                     <div class="form-group col-3">
@@ -98,8 +98,15 @@
                         @enderror
                     </div>
 
-                    <span class="mt-4"></span>
+                    <div id="photo-container" class="form-group col-4" style="display: none;">
+                        <label for="photo">Foto:</label>
+                        <input type="file" class="form-control @error('photo') is-invalid @enderror" id="photo" name="photo">
+                        @error('photo')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
 
+                    <span class="mt-4"></span>
                     <div class="form-group col-3">
                         <label for="estado_activo">Estado Activo:</label>
                         <select class="form-control @error('estado_activo') is-invalid @enderror" id="estado_activo" name="estado_activo" required>
@@ -117,4 +124,24 @@
             </div>
         </div>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            document.getElementById('role').addEventListener('change', function () {
+                var roleId = this.value; // Assuming the value represents the role ID
+                var photoContainer = document.getElementById('photo-container');
+
+                // Change 'docenteRoleId' to the actual ID of the 'docente' role
+                var docenteRoleId = 1; // Replace with the correct ID
+
+                if (roleId === docenteRoleId.toString()) {
+                    photoContainer.style.display = 'block';
+                } else {
+                    photoContainer.style.display = 'none';
+                }
+            });
+        });
+    </script>
+
 @endsection
+

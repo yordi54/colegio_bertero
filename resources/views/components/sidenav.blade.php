@@ -86,6 +86,22 @@
         </div>
     @endif
 
+     @if (Auth::user()->roles->contains('nombre', 'Secretario'))
+    <div class="m-3 btn-dropdown">
+        <button 
+            class="btn btn-primary collapsed d-flex justify-content-center" style="width: 100%;" type="button" data-bs-toggle="collapse" data-bs-target="#collapseGeocerca" aria-expanded="false" aria-controls="collapseGeocerca">
+                <span class="pt-3 pe-1">GEOCERCA</span>
+                <i class="bi bi-person-fill fs-2"></i>
+        </button>
+            
+        <div class="collapse" id="collapseGeocerca">
+            <div class="list-group card-body">
+                <a class="list-group-item list-group-item-action" href="{{route("geocercas.index")}}">Geocerca</a>                  
+            </div>
+        </div>
+    </div>
+    @endif
+
     <div class="m-3 btn-dropdown">
         <button
             id="configDropdown"
