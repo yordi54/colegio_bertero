@@ -37,6 +37,10 @@ function initMap() {
     }
 
     btnMarcarAsistencia.addEventListener("click", (e) => {
+        if(!myLatLng){
+            alert("Habilitar ubicación");
+            return;
+        }
         var isInside = isCoordinateInsideRadius(myLatLng);
         if(!isInside)
             alert("No se encuentra dentro del área del colegio");
