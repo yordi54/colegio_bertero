@@ -11,11 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-
-        Schema::create('colegios', function (Blueprint $table) {
+        Schema::create('horas', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('docentes_id');
-            $table->unsignedBigInteger('geocerca_id');
+            $table->time('hora_ini');
+            $table->time('hora_fin');
             $table->timestamps();
         });
     }
@@ -25,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('colegios');
+        Schema::dropIfExists('horas');
     }
 };

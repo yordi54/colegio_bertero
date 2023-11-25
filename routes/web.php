@@ -77,5 +77,8 @@ Route::group(["middleware" => 'auth'], function() {
     Route::resource("geocercas", GeocercaController::class)->names("geocercas");
 
 
+
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/obtener-datos-docente', 'AsistenciaController@obtenerDatosDocente')->name('obtener-datos-docente');
+
 });

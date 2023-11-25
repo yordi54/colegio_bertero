@@ -11,11 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-
-        Schema::create('colegios', function (Blueprint $table) {
+        Schema::create('permisos', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('docentes_id');
-            $table->unsignedBigInteger('geocerca_id');
+            $table->string('nombre', 100);
             $table->timestamps();
         });
     }
@@ -25,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('colegios');
+        Schema::dropIfExists('permisos');
     }
 };

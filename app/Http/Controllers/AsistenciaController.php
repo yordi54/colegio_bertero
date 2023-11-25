@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Asistencia;
 use App\Models\Persona;
+use App\Models\Colegio;
 use Illuminate\Support\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -17,7 +18,9 @@ class AsistenciaController extends Controller
     public function index()
     {
         $asistencias = Asistencia::select("*")->cursorPaginate(5);
-        return view("registros.asistencias.index", compact("asistencias"));
+        $datosDocente = $this->obtenerDatosDocente();
+
+        return view("registros.asistencias.index", compact("asistencias", "datosDocente"));
     }
 
     /**
@@ -127,4 +130,31 @@ class AsistenciaController extends Controller
         return $mensaje . abs($diferenciaEnMinutos) . " min";
     }
 
+    // En tu controlador (app/Http/Controllers/TuControlador.php)
+
+    public function obtenerDatosDocente()
+    {
+        if (Auth::check()) {
+            $docentes_id = Auth::user()->id;
+            
+            // Modifica la consulta para reflejar la relación entre Colegio y Geocerca
+            $geocerca = Colegio::where('docentes_id', $docentes_id)
+                ->with('geocerca') // Carga la relación geocerca
+                ->first();
+
+            if ($geocerca && $geocerca->geocerca) {
+                $datosDocente = [
+                    'latitud' => $geocerca->geocerca->latitud,
+                    'longitud' => $geocerca->geocerca->longitud,
+                    'radio' => $geocerca->geocerca->radio,
+                ];
+
+                return $datosDocente;
+            } else {
+                return (['error' => 'No se encontró la geocerca para el docente.']);
+            }
+        } else {
+            return (['error' => 'Usuario no autenticado.']);
+        }
+    }
 }
