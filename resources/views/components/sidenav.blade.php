@@ -14,7 +14,22 @@
         </div>            
     </div>
   
-    
+    @if (Auth::user()->roles->contains('nombre', 'Secretario'))
+        <div class="m-3 btn-dropdown">
+            <button 
+                class="btn btn-primary collapsed d-flex justify-content-center" style="width: 100%;" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDashboard" aria-expanded="false" aria-controls="collapseDashboard">
+                    <span class="pt-3 pe-1">DASHBOARD</span>
+                    <i class="bi bi-person-fill fs-2"></i>
+            </button>
+                
+            <div class="collapse" id="collapseDashboard">
+                <div class="list-group card-body">
+                    <a class="list-group-item list-group-item-action" href="{{route("dashboard")}}">Panel Dashboard</a>
+                </div>
+            </div>
+        </div>
+    @endif
+
     @if (Auth::user()->roles->contains('nombre', 'Secretario'))
         <div class="m-3 btn-dropdown">
             <button 
