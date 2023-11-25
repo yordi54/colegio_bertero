@@ -74,5 +74,5 @@ Route::group(["middleware" => 'auth'], function() {
     Route::post("asistencias/marcar", [AsistenciaController::class, "marcarAsistencia"]);
 
     Route::resource("geocercas", GeocercaController::class)->names("geocercas");
-
+    Route::get('/obtener-datos-docente', 'AsistenciaController@obtenerDatosDocente')->name('obtener-datos-docente');
 });

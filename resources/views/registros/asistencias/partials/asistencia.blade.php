@@ -8,7 +8,16 @@
     <button id="btn-get-location" class="btn btn-primary mb-5" style="width: 50px;">
         <i class="bi bi-geo-alt-fill"></i>
     </button>
-</div>
+<form id="datosDocenteForm" style="display: none;">
+    <label for="latitud">Latitud:</label>
+    <input type="text" id="latitud" name="latitud" value="{{ $datosDocente['latitud'] }}" readonly>
 
-<script src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAPS_API_KEY') }}&callback=initMap" async defer></script>
+    <label for="longitud">Longitud:</label>
+    <input type="text" id="longitud" name="longitud" value="{{ $datosDocente['longitud'] }}" readonly>
+
+    <label for="radio">Radio:</label>
+    <input type="text" id="radio" name="radio" value="{{ $datosDocente['radio'] }}" readonly>
+</form>
+</div>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA5ZElF3PG1e52lcJkI-CrZLQ9-k4bs98g&callback=initMap" async defer></script>
 <script src="{{asset('js/google-map.js')}}"></script>
