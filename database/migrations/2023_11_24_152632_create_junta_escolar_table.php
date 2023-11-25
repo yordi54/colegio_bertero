@@ -11,11 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-
-        Schema::create('colegios', function (Blueprint $table) {
+        Schema::create('junta_escolar', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('docentes_id');
-            $table->unsignedBigInteger('geocerca_id');
+            $table->string('nombres', 100);
+            $table->string('apellidos', 100);
+            $table->string('telefono', 17)->nullable();
+            $table->string('sexo', 1);
+            $table->boolean('estado_activo')->nullable();
+            $table->string('rol', 100)->nullable();
             $table->timestamps();
         });
     }
@@ -25,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('colegios');
+        Schema::dropIfExists('junta_escolar');
     }
 };
