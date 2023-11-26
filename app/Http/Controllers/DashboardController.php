@@ -11,15 +11,15 @@ class DashboardController extends Controller
     public function index(){
         $mesActual = date('n');
 
-        $data_asistencia = Http::get('http://localhost:3000/api/asistencia/by-mes');
-        $data_falta = Http::get('http://localhost:3000/api/falta/by-mes');
-        $data_licencia = Http::get('http://localhost:3000/api/licencia/by-mes');
-        $faltasDocMes= Http::get('http://localhost:3000/api/falta/docente-mas-faltas');
-        $asistenciasDocMes = Http::get('http://localhost:3000/api/asistencia/docente-mas-asistencias');
-        $licenciasDocMes = Http::get('http://localhost:3000/api/licencia/docente-mas-licencias');
+        $data_asistencia = Http::get('https://colegio-bi-microservicio.azurewebsites.net/api/asistencia/by-mes');
+        $data_falta = Http::get('https://colegio-bi-microservicio.azurewebsites.net/api/falta/by-mes');
+        $data_licencia = Http::get('https://colegio-bi-microservicio.azurewebsites.net/api/licencia/by-mes');
+        $faltasDocMes= Http::get('https://colegio-bi-microservicio.azurewebsites.net/api/falta/docente-mas-faltas');
+        $asistenciasDocMes = Http::get('https://colegio-bi-microservicio.azurewebsites.net/api/asistencia/docente-mas-asistencias');
+        $licenciasDocMes = Http::get('https://colegio-bi-microservicio.azurewebsites.net/api/licencia/docente-mas-licencias');
         // Inicializar $asistencias con ceros para todos los meses hasta el actual
-        $distribucionGeneral = Http::get('http://localhost:3000/api/asistencia/distribucion-general');  
-        $dataComparativaAsistencia = Http::get('http://localhost:3000/api/asistencia/comparativa-asistencias');
+        $distribucionGeneral = Http::get('https://colegio-bi-microservicio.azurewebsites.net/api/asistencia/distribucion-general');  
+        $dataComparativaAsistencia = Http::get('https://colegio-bi-microservicio.azurewebsites.net/api/asistencia/comparativa-asistencias');
         $asistencias = array_fill(1, $mesActual, 0);
         $faltas = array_fill(1, $mesActual, 0);
         $licencias = array_fill(1, $mesActual,0 );
