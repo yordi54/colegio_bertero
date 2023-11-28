@@ -9,7 +9,7 @@ use Illuminate\Support\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-
+use Illuminate\Support\Facades\Http;
 class AsistenciaController extends Controller
 {
     /**
@@ -114,6 +114,17 @@ class AsistenciaController extends Controller
             $asistencia->fecha = $fechaActual;
             $asistencia->docentes_id = $docente_id;
             $asistencia->save();
+             // Recupera el ID del registro recién creado
+             $idAsistenciaCreada = $asistencia->id;
+        
+             Http::post('https://colegio-bi-microservicio.azurewebsites.net/api/asistencias', [
+                 'id' => $idAsistenciaCreada,
+                 'tiempo_retraso' => $diferenciaMinutos,
+                 'hora_ingreso' => $horaActual,
+                 'hora_salida' => $horaActual,
+                 'fecha' => $fechaActual,
+                 'docentes_id' => $docente_id
+             ]);
             return response()->json("Asistencia creada");
         }
 

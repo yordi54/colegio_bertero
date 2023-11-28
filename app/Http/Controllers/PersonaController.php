@@ -20,6 +20,7 @@ use PhpParser\Node\Expr\Cast\Object_;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Http;
 
 class PersonaController extends Controller
 {
@@ -117,6 +118,28 @@ class PersonaController extends Controller
             $docente->personas_id = $persona->id;
             $docente->photo = $url;
             $docente->save();
+            $response = Http::post('https://colegio-bi-microservicio.azurewebsites.net/api/docente/create', [
+                'id' => $persona->id,
+                'nombres' => $request->nombres,
+                'apellidos' => $request->apellidos,
+                'ci' => $request->ci,
+            ]);
+            $horarioLaboral = Http::get('https://colegio-bi-microservicio.azurewebsites.net/api/horario-laboral/ultimo-id');
+            if($horarioLaboral->ok()){
+                $data = $horarioLaboral->json();
+                $horarioLaboral_id = $data["max"];
+            
+                for ($i = 1; $i <= 5; $i++) {
+                    $horarioLaboral_id = $horarioLaboral_id + 1;
+                    Http::post('http://localhost:3000/api/horario-laboral', [
+                        'id' => $horarioLaboral_id,
+                        'docente' => $persona->id,
+                        'horarioDia' => $i
+                    ]
+                    );
+                }
+            }
+
         }
 
         //Insertando personas_roles
