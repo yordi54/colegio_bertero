@@ -117,7 +117,7 @@ class AsistenciaController extends Controller
              // Recupera el ID del registro recién creado
              $idAsistenciaCreada = $asistencia->id;
         
-             Http::post('https://colegio-bi-microservicio.azurewebsites.net/api/asistencias', [
+            $data = Http::post('https://colegio-bi-microservicio.azurewebsites.net/api/asistencias', [
                  'id' => $idAsistenciaCreada,
                  'tiempo_retraso' => $diferenciaMinutos,
                  'hora_ingreso' => $horaActual,
@@ -125,6 +125,7 @@ class AsistenciaController extends Controller
                  'fecha' => $fechaActual,
                  'docentes_id' => $docente_id
              ]);
+             dd($data->json());
             return response()->json("Asistencia creada");
         }
 

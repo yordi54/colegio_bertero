@@ -81,6 +81,6 @@ Route::group(["middleware" => 'auth'], function() {
 
 
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
-    Route::get('/obtener-datos-docente', 'AsistenciaController@obtenerDatosDocente')->name('obtener-datos-docente');
+    Route::get('/obtener-datos-docente', [AsistenciaController::class, 'obtenerDatosDocente'])->name('obtener-datos-docente');
 
 });
