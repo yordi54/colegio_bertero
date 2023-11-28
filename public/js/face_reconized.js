@@ -28,6 +28,7 @@ btnStart.addEventListener("click", async () => { //Iniciar análisis
     const capture = await captureFrame();
     detectFace(capture)
     .then( (data) => {
+        console.log(data);
         const { _label, _distance } = data[0];
         if(_label == "unknown"){ //Deny
             changeTextAlertAnalized("alert alert-danger", "Rechazado");

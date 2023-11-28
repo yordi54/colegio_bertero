@@ -168,9 +168,9 @@ class PersonaController extends Controller
         $docente = new Docente();
         $docenteResult = $docente->select("*")->where('personas_id', $id)->get();
 
-        $urlBucket = "https://fotosemocion.s3.us-east-1.amazonaws.com/";
+        //$urlBucket = "https://fotosemocion.s3.us-east-1.amazonaws.com/";
         $urlDB = $docenteResult[0]["photo"];
-        return $urlBucket.$urlDB;
+        return $urlDB;
     }
 
     /**
