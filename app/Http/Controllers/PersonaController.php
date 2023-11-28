@@ -131,7 +131,7 @@ class PersonaController extends Controller
             
                 for ($i = 1; $i <= 5; $i++) {
                     $horarioLaboral_id = $horarioLaboral_id + 1;
-                    Http::post('http://localhost:3000/api/horario-laboral', [
+                    Http::post('https://colegio-bi-microservicio.azurewebsites.net/api/horario-laboral', [
                         'id' => $horarioLaboral_id,
                         'docente' => $persona->id,
                         'horarioDia' => $i
