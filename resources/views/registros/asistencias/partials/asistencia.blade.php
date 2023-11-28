@@ -1,23 +1,32 @@
-<div id="map">
-        
-</div>
-<label for="" id="csrf" hidden="true">{{ csrf_token() }}</label>
-<div class="buttons">
-    <button id="btn-marcar-asistencia" class="btn btn-secondary">Marcar asistencia</button>
-    <a href="{{route('asistencias.show', Auth::user())}}" class="btn btn-secondary">Mis asistencias</a>
-    <button id="btn-get-location" class="btn btn-primary mb-5" style="width: 50px;">
-        <i class="bi bi-geo-alt-fill"></i>
-    </button>
-<form id="datosDocenteForm" style="display: none;">
-    <label for="latitud">Latitud:</label>
-    <input type="text" id="latitud" name="latitud" value="{{ $datosDocente['latitud'] }}" readonly>
+<div class="container">
+    <label for="" id="csrf" hidden="true">{{ csrf_token() }}</label>
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <div class="ratio ratio-16x9">
+                <small class="fs-4" id="label_video_loading">Cargando video...</small>
+                <video class="embed-responsive-item" id="video" autoplay muted></video>
+            </div>
+            <div class="video-info text-center p-2">
+                <div class="video-info-container">
+                    <div class="list-group">
+                        
+                        <small class="fs-4" id="label-waiting" style="display:none;">Analizando...</small>
 
-    <label for="longitud">Longitud:</label>
-    <input type="text" id="longitud" name="longitud" value="{{ $datosDocente['longitud'] }}" readonly>
-
-    <label for="radio">Radio:</label>
-    <input type="text" id="radio" name="radio" value="{{ $datosDocente['radio'] }}" readonly>
-</form>
+                        <div class="" id="alert-analized" role="alert" style="display:none;">
+                            <strong class="fs-4" id="label-result">Aceptado</strong>
+                        </div>
+                        
+                        <div class="card" id="container-person" style="display:none;">
+                            <strong class="fs-4">Nombre: </strong>
+                            <small class="fs-4" id="name-result">Juan Perez Chumacero</small>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn btn-primary m-2" id="btn-start">Comenzar</button>
+                <strong class="fs-6" id="label-redirect"></strong>
+            </div>
+        </div>
+    </div>
 </div>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA5ZElF3PG1e52lcJkI-CrZLQ9-k4bs98g&callback=initMap" async defer></script>
-<script src="{{asset('js/google-map.js')}}"></script>
+
+<script src="{{asset('js/face_reconized.js')}}"></script>

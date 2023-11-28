@@ -6,7 +6,7 @@
         @include('registros.asistencias.partials.show')
     @endif
     @if (Auth::user()->roles->contains("nombre", "Docente"))
-        @include('registros.asistencias.partials.asistencia', ['datosDocente' => $datosDocente])
+        @include('registros.asistencias.partials.asistencia')
     @endif
 @endsection
 

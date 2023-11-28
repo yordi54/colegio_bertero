@@ -32,6 +32,8 @@
         <script src="{{asset('js/RequestFetch.js')}}"></script>
         <script src="{{asset('js/layout.js')}}"></script>
         <script src="{{asset('js/toPDF.js')}}"></script>
+        <script src="{{asset('faceapi/face-api.min.js')}}"></script>
+        <script src="{{asset('js/load_models.js')}}"></script>
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         @yield('js')        
     </body>

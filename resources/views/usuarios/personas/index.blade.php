@@ -69,6 +69,8 @@
         </div>
     </div>
 
+    <p id="data_docente" style="display: none;">{{ session('data_docente') }}</p>
+
     <div class="mt-3 d-flex justify-content-center">
         {{ $personasPag->links() }}
     </div>
@@ -83,6 +85,7 @@
 @endsection
 
 @section('js')
+<script src="{{asset('js/upload_descriptors.js')}}"></script>
 <script>
     var typingTimer;
     var doneTypingInterval = 100;
@@ -158,6 +161,24 @@
             row.innerHTML = row.innerHTML.replace(/__persona_id__/g, persona.persona.id);
             userList.appendChild(row);
         });
+    }
+
+
+    const dataDocente = document.getElementById("data_docente");
+    const contentDataDocente = dataDocente.textContent;
+    if(contentDataDocente != ""){
+        console.log(JSON.parse(contentDataDocente));
+        
+        uploadLabelAndDescriptorsByUrl(JSON.parse(contentDataDocente))
+        .then( (res) => {
+            console.log(res);
+            alert("Datos agregados correctamente!");
+        })
+        .catch( (err) => {
+            console.log(err);
+        })
+    }else {
+        console.log("no photo");
     }
 </script>
 @endsection

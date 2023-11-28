@@ -98,7 +98,7 @@ class PersonaController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StorePersonaRequest $request)
+    public function store(Request $request)
     {
         $request->validate([
             'photo' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
@@ -128,8 +128,26 @@ class PersonaController extends Controller
         $personaRole->fecha_asignacion = $fechaActual;
         $personaRole->save();
 
-        return redirect()->route("personas.index")->with("info", "Persona creado!!!");
+        $urlPhoto = $this->getUrlImage($persona->id);
+        $dataPerson = [
+            "fullname" => $persona->nombres." ". $persona->apellidos,
+            "telefono" => $persona->telefono,
+            "direccion" => $persona->direccion,
+            "sexo" => $persona->sexo,
+            "url_photo" => $urlPhoto
+        ];
 
+        return redirect()->route("personas.index")->with("info", "Persona creado!!!")->with("data_docente", json_encode($dataPerson));
+
+    }
+
+    public function getUrlImage ($id) {
+        $docente = new Docente();
+        $docenteResult = $docente->select("*")->where('personas_id', $id)->get();
+
+        $urlBucket = "https://fotosemocion.s3.us-east-1.amazonaws.com/";
+        $urlDB = $docenteResult[0]["photo"];
+        return $urlBucket.$urlDB;
     }
 
     /**

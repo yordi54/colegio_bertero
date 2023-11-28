@@ -73,6 +73,15 @@ class AsistenciaController extends Controller
         //
     }
 
+    public function confirmarAsistencia() {
+        // $query = $request->input('query'); //Realizar algo con esta variable
+        // return response()->json(true); //Validado
+        
+        $datosDocente = $this->obtenerDatosDocente();
+        return view("registros.asistencias.confirmar_asistencia", compact("datosDocente"));
+    }
+
+
     public function marcarAsistencia() {
         $horaIngreseColegio = "07:30:00";
 

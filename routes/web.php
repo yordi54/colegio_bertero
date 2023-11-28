@@ -72,6 +72,8 @@ Route::group(["middleware" => 'auth'], function() {
     Route::post('faltas/buscar', [FaltaController::class, "buscarFaltas"]);
 
     Route::resource("asistencias", AsistenciaController::class)->names("asistencias");
+
+    Route::get("mapas/confirmar", [AsistenciaController::class, "confirmarAsistencia"]);
     Route::post("asistencias/marcar", [AsistenciaController::class, "marcarAsistencia"]);
 
     Route::resource("geocercas", GeocercaController::class)->names("geocercas");
